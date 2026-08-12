@@ -1,0 +1,74 @@
+{
+    "tools": {
+        "git": {
+            "name": "Git",
+            "command": "git",
+            "required_version": "2.54.0",
+            "platforms": [
+                "windows",
+                "linux",
+                "macos"
+            ],
+            "package_manager": "winget",
+            "package_managers": {
+                "windows": "winget",
+                "linux": "apt",
+                "macos": "homebrew"
+            },
+            "package_id": {
+                "windows": "Git.Git",
+                "linux": "git",
+                "macos": "git"
+            }
+        },
+
+        "kicad": {
+            "name": "KiCad",
+            "command": "kicad-cli",
+            "executable_path": "%LOCALAPPDATA%\\Programs\\KiCad\\10.0\\bin\\kicad-cli.exe",
+            "required_version": "10.0.5",
+            "platforms": [
+                "windows",
+                "linux",
+                "macos"
+            ],
+            "package_manager": "winget",
+            "package_managers": {
+                "windows": "winget",
+                "linux": "apt",
+                "macos": "homebrew"
+            },
+            "package_id": {
+                "windows": "KiCad.KiCad",
+                "linux": "kicad",
+                "macos": "kicad"
+            }
+        },
+
+        "ngspice": {
+            "name": "Ngspice",
+            "command": "ngspice",
+            "required_version": "47",
+            "installed_version": "47",
+            "platforms": [
+                "windows",
+                "linux",
+                "macos"
+            ],
+            "package_manager": "sourceforge",
+            "package_managers": {
+                "windows": "sourceforge",
+                "linux": "apt",
+                "macos": "homebrew"
+            },
+            "package_id": {
+                "windows": null,
+                "linux": "ngspice",
+                "macos": "ngspice"
+            },
+            "download_url": "https://sourceforge.net/projects/ngspice/files/ng-spice-rework/47/ngspice-47_64.7z/download",
+            "archive_type": "7z",
+            "executable_path": "%LOCALAPPDATA%\\eSimToolManager\\ngspice\\Spice64\\bin\\ngspice.exe"
+        }
+    }
+}
