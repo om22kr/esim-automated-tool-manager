@@ -1,0 +1,407 @@
+eSim Automated Tool Manager
+
+1. REQUIREMENTS
+===============
+
+Before running the project, make sure the following are installed:
+
+- Python 3.10 or newer
+- Git
+- Internet connection
+
+The project has been tested on:
+
+Windows:
+- Python 3.14.3
+- Git 2.54.0
+- KiCad 10.0.5
+- Ngspice 47
+- Winget 1.29.280
+
+Ubuntu / WSL:
+- Ubuntu 26.04 LTS
+- Python 3.14.4
+- APT 1:2.53.0-1ubuntu1
+
+
+2. DOWNLOAD / CLONE THE PROJECT
+================================
+
+Clone the repository:
+
+git clone https://github.com/om22kr/esim-automated-tool-manager.git
+
+Enter the project directory:
+
+cd esim-automated-tool-manager
+
+
+3. WINDOWS SETUP
+================
+
+Open Command Prompt or PowerShell in the project directory.
+
+Check Python:
+
+python --version
+
+Create a virtual environment:
+
+python -m venv .venv
+
+Activate the virtual environment:
+
+.venv\Scripts\activate
+
+Install the required Python packages:
+
+python -m pip install -r requirements.txt
+
+
+4. RUN THE PROJECT ON WINDOWS
+==============================
+
+From the project root directory, run:
+
+python src\main.py
+
+The application will display:
+
+1. List installed tools
+2. Check tool versions
+3. Install a tool
+4. Update a tool
+5. Check dependencies
+6. Configure tools
+7. View logs
+8. Exit
+
+Enter the number corresponding to the operation you want to perform.
+
+
+5. LINUX / UBUNTU SETUP
+=======================
+
+Open a terminal in the project directory.
+
+Check Python:
+
+python3 --version
+
+If pip and virtual-environment support are not installed:
+
+sudo apt update
+
+sudo apt install python3-pip python3-venv
+
+Create a virtual environment:
+
+python3 -m venv .venv
+
+Activate it:
+
+source .venv/bin/activate
+
+Install the required Python packages:
+
+python -m pip install -r requirements.txt
+
+
+6. RUN THE PROJECT ON LINUX / UBUNTU
+=====================================
+
+From the project root directory, run:
+
+python3 src/main.py
+
+The application will display:
+
+1. List installed tools
+2. Check tool versions
+3. Install a tool
+4. Update a tool
+5. Check dependencies
+6. Configure tools
+7. View logs
+8. Exit
+
+Enter the number corresponding to the operation you want to perform.
+
+
+7. MAIN MENU OPTIONS
+====================
+
+Option 1 - List installed tools
+
+Displays the installed status and detected versions of the configured tools.
+
+Example:
+
+Git          Version: 2.54.0
+KiCad        Version: 10.0.5
+Ngspice      Version: 47
+
+
+Option 2 - Check tool versions
+
+Checks the installed versions and compares them with the required versions
+defined in:
+
+config/tools.json
+
+
+Option 3 - Install a tool
+
+Allows the user to select a configured tool and start the installation
+process.
+
+Available tools:
+
+1. Git
+2. KiCad
+3. Ngspice
+
+
+Option 4 - Update a tool
+
+Allows the user to select a configured tool and perform an update.
+
+The manager checks the installed version after the update operation.
+
+
+Option 5 - Check dependencies
+
+Checks system dependencies and configured tools.
+
+Examples:
+
+- Python
+- Git
+- Winget on Windows
+- KiCad
+- Ngspice
+
+
+Option 6 - Configure tools
+
+Allows the user to view and configure executable paths.
+
+The configuration is stored in:
+
+config/tools.json
+
+
+Option 7 - View logs
+
+Displays the application log.
+
+Log file:
+
+logs/manager.log
+
+
+Option 8 - Exit
+
+Exits the application.
+
+
+8. RUNNING THE TESTS
+====================
+
+The project contains tests in:
+
+tests/
+
+Test files:
+
+tests/test_config_manager.py
+tests/test_dependencies.py
+tests/test_installer.py
+tests/test_logger.py
+
+
+Run the test suite:
+
+python -m pytest
+
+
+Individual tests can also be executed.
+
+Windows:
+
+python tests\test_config_manager.py
+python tests\test_dependencies.py
+python tests\test_installer.py
+python tests\test_logger.py
+
+
+Linux:
+
+python3 tests/test_config_manager.py
+python3 tests/test_dependencies.py
+python3 tests/test_installer.py
+python3 tests/test_logger.py
+
+
+9. SYNTAX CHECK
+===============
+
+To check the Python source files for syntax errors:
+
+Windows:
+
+python -m py_compile src\main.py src\installer.py src\version_checker.py src\dependency_checker.py src\config_manager.py src\logger.py
+
+
+Linux:
+
+python3 -m py_compile src/main.py src/installer.py src/version_checker.py src/dependency_checker.py src/config_manager.py src/logger.py
+
+
+10. PROJECT STRUCTURE
+=====================
+
+esim-automated-tool-manager/
+|
+|-- config/
+|   |-- tools.json
+|
+|-- docs/
+|   |-- DESIGN.md
+|
+|-- logs/
+|   |-- manager.log
+|
+|-- src/
+|   |-- config_manager.py
+|   |-- dependency_checker.py
+|   |-- installer.py
+|   |-- logger.py
+|   |-- main.py
+|   |-- package_managers.py
+|   |-- version_checker.py
+|
+|-- tests/
+|   |-- test_config_manager.py
+|   |-- test_dependencies.py
+|   |-- test_installer.py
+|   |-- test_logger.py
+|
+|-- README.md
+|-- TESTING.md
+|-- requirements.txt
+|-- RUN_INSTRUCTIONS.txt
+
+
+11. CONFIGURATION
+=================
+
+Tool configuration is stored in:
+
+config/tools.json
+
+The configuration contains information such as:
+
+- Tool name
+- Command
+- Required version
+- Supported platforms
+- Package manager
+- Package ID
+- Executable path
+- Download URL
+- Archive type
+
+
+12. SUPPORTED PACKAGE MANAGERS
+===============================
+
+Windows:
+Winget
+
+Linux:
+APT
+
+macOS:
+Homebrew
+
+Windows and Ubuntu/WSL were tested during development.
+
+macOS support is included in the configuration but was not tested.
+
+
+13. LOG FILE
+============
+
+Application logs are stored in:
+
+logs/manager.log
+
+Use menu option 7 to view the logs.
+
+
+14. IMPORTANT
+=============
+
+Run the application from the PROJECT ROOT directory:
+
+esim-automated-tool-manager/
+
+Do NOT run:
+
+python main.py
+
+from inside the src directory unless the project configuration is adjusted.
+
+Recommended Windows command:
+
+python src\main.py
+
+Recommended Linux command:
+
+python3 src/main.py
+
+
+15. QUICK START
+===============
+
+WINDOWS:
+
+git clone https://github.com/om22kr/esim-automated-tool-manager.git
+
+cd esim-automated-tool-manager
+
+python -m venv .venv
+
+.venv\Scripts\activate
+
+python -m pip install -r requirements.txt
+
+python src\main.py
+
+
+LINUX / UBUNTU:
+
+git clone https://github.com/om22kr/esim-automated-tool-manager.git
+
+cd esim-automated-tool-manager
+
+python3 -m venv .venv
+
+source .venv/bin/activate
+
+python -m pip install -r requirements.txt
+
+python3 src/main.py
+
+
+16. REPOSITORY
+==============
+
+GitHub:
+
+https://github.com/om22kr/esim-automated-tool-manager
+
+
+END OF RUN INSTRUCTIONS
+=======================
