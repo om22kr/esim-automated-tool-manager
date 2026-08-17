@@ -56,4 +56,4 @@ python -m py_compile src\version_checker.py
 python -m py_compile src\dependency_checker.py
 python -m py_compile src\config_manager.py
 python -m py_compile src\logger.py
-python -m py_compile src\package_managers.py
+python -m py_compile src\package_managers.py    
